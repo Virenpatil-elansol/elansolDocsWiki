@@ -1,7 +1,7 @@
 # Elansol Developers Guide Configuration
 
 site_name: Elansol Developers Guide
-
+site_url: https://squidfunk.github.io/mkdocs-material/
 # Define the navigation structure for the documentation
 nav:
   - "<h4 style='margin: 0; padding: 0;'>🏠 Home</h4>": index.md # The homepage of the guide
