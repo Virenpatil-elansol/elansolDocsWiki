@@ -1,0 +1,16 @@
+# Elansol Developers Guide Configuration
+
+site_name: Elansol Developers Guide
+
+# Define the navigation structure for the documentation
+nav:
+  - "<h4 style='margin: 0; padding: 0;'>🏠 Home</h4>": index.md # The homepage of the guide
+  - "<h4 style='margin: 0; padding: 0;'>🔠 Naming Conventions</h4>": namingConventions.md # Guide to naming conventions
+  - "<h4 style='margin: 0; padding: 0;'>🎨 Frontend Guide</h4>": frontendGuide.md # Frontend development guidelines
+  - "<h4 style='margin: 0; padding: 0;'>⚙️ Backend Guide</h4>": backendGuide.md # Backend development guidelines
+  - "<h4 style='margin: 0; padding: 0;'>⚡ Electron Guide</h4>": electronGuide.md # Electron development guidelines
+  - "<h4 style='margin: 0; padding: 0;'>⚛️ React Crash Course</h4>": reactCrashCourse.md # React crash course
+  - "<h4 style='margin: 0; padding: 0;'>🖥️ Nodejs and Express Crash Course</h4>": nodeAndExpressCrashCourse.md # Node.js and Express crash course
+
+theme:
+  name: material
