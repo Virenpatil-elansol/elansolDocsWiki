@@ -1,0 +1,8 @@
+/* Custom CSS for navigation header */
+.nav-header {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 6rem; /* Adjust the font size */
+ 
+}

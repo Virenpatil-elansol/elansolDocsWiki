@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/backendGuide/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/electronGuide/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/frontendGuide/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/namingConventions/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/nodeAndExpressCrashCourse/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+    <url>
+         <loc>https://squidfunk.github.io/mkdocs-material/reactCrashCourse/</loc>
+         <lastmod>2024-12-02</lastmod>
+    </url>
+</urlset>
