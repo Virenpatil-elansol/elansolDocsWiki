@@ -1,0 +1,1168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../reactCrashCourse/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>🖥️ Nodejs and Express Crash Course - Elansol Developers Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nodejs-expressjs-crash-course-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Elansol Developers Guide" class="md-header__button md-logo" aria-label="Elansol Developers Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Elansol Developers Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              <h4 style='margin: 0; padding: 0;'>🖥️ Nodejs and Express Crash Course</h4>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Elansol Developers Guide" class="md-nav__button md-logo" aria-label="Elansol Developers Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Elansol Developers Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>🏠 Home</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namingConventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>🔠 Naming Conventions</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontendGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>🎨 Frontend Guide</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backendGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>⚙️ Backend Guide</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronGuide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>⚡ Electron Guide</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reactCrashCourse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>⚛️ React Crash Course</h4>
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>🖥️ Nodejs and Express Crash Course</h4>
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    <h4 style='margin: 0; padding: 0;'>🖥️ Nodejs and Express Crash Course</h4>
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-nodejs-expressjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Getting Started with Node.js &amp; Express.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Getting Started with Node.js & Express.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-set-up-a-nodejs-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Set Up a Node.js Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-your-first-express-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔨 Building Your First Express Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 Building Your First Express Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-express-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Express Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-with-nodemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Server with Nodemon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-in-expressjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Middleware in Express.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Middleware in Express.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-morgan-for-request-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Morgan for Request Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-file-uploads-with-multer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling File Uploads with Multer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-jwt-with-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Authentication: JWT with Refresh Tokens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Authentication: JWT with Refresh Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-with-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWT Authentication with Refresh Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Tokens:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-integration-mongodb-and-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗄️ Database Integration: MongoDB and PostgreSQL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Database Integration: MongoDB and PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-integrating-mongodb-with-mongoose" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Integrating MongoDB with Mongoose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-integrating-postgresql-with-pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Integrating PostgreSQL with pg
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-structure-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Folder Structure Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Conclusion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-nodejs-expressjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Getting Started with Node.js &amp; Express.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Getting Started with Node.js & Express.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-set-up-a-nodejs-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Set Up a Node.js Project
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-your-first-express-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔨 Building Your First Express Server
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 Building Your First Express Server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-express-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Express Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-with-nodemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the Server with Nodemon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#middleware-in-expressjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Middleware in Express.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Middleware in Express.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-morgan-for-request-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Morgan for Request Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-file-uploads-with-multer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling File Uploads with Multer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-jwt-with-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Authentication: JWT with Refresh Tokens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Authentication: JWT with Refresh Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-with-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWT Authentication with Refresh Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Tokens:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-integration-mongodb-and-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗄️ Database Integration: MongoDB and PostgreSQL
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Database Integration: MongoDB and PostgreSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-integrating-mongodb-with-mongoose" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Integrating MongoDB with Mongoose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-integrating-postgresql-with-pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Integrating PostgreSQL with pg
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-structure-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Folder Structure Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Conclusion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="nodejs-expressjs-crash-course-documentation">📚 <strong>Node.js &amp; Express.js Crash Course Documentation</strong></h1>
+<p>Welcome to the <strong>Node.js &amp; Express.js Crash Course</strong>! In this guide, you'll learn how to build a backend server using <strong>Node.js</strong> and <strong>Express.js</strong>, covering fundamental concepts like middleware, file uploads, authentication (JWT with Refresh Token), database integration (MongoDB and PostgreSQL), and more. By the end, you’ll be ready to create real-world web applications and APIs.</p>
+<hr />
+<h2 id="getting-started-with-nodejs-expressjs">🚀 <strong>Getting Started with Node.js &amp; Express.js</strong></h2>
+<h3 id="step-1-install-nodejs"><strong>Step 1: Install Node.js</strong></h3>
+<p>Download and install <strong>Node.js</strong> from <a href="https://nodejs.org/">nodejs.org</a>, which includes <strong>npm</strong> (Node Package Manager) for managing dependencies.</p>
+<h3 id="step-2-set-up-a-nodejs-project"><strong>Step 2: Set Up a Node.js Project</strong></h3>
+<p>Create a new project directory, initialize a Node.js project, and install necessary dependencies.</p>
+<pre><code class="language-bash">mkdir my-express-app
+cd my-express-app
+npm init -y
+npm install express morgan multer jsonwebtoken bcryptjs mongoose pg
+npm install --save-dev nodemon
+</code></pre>
+<p>This installs:
+- <strong>express</strong>: Core framework for building APIs.
+- <strong>morgan</strong>: Middleware for logging HTTP requests.
+- <strong>multer</strong>: Middleware for handling file uploads.
+- <strong>jsonwebtoken</strong>: JWT authentication package.
+- <strong>bcryptjs</strong>: For hashing passwords.
+- <strong>mongoose</strong>: MongoDB ORM for managing database operations.
+- <strong>pg</strong>: PostgreSQL client for Node.js.
+- <strong>nodemon</strong>: For auto-restarting the server during development.</p>
+<hr />
+<h2 id="building-your-first-express-server">🔨 <strong>Building Your First Express Server</strong></h2>
+<h3 id="basic-express-setup"><strong>Basic Express Setup</strong></h3>
+<p>Create <strong><code>server.js</code></strong> to set up a basic Express server.</p>
+<pre><code class="language-js">const express = require('express');
+const morgan = require('morgan');
+const app = express();
+const port = 3000;
+
+// Use Morgan for logging HTTP requests
+app.use(morgan('dev'));
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
+// Basic route
+app.get('/', (req, res) =&gt; {
+  res.send('Hello, World!');
+});
+
+// Start server
+app.listen(port, () =&gt; {
+  console.log(`Server running at http://localhost:${port}`);
+});
+</code></pre>
+<h3 id="running-the-server-with-nodemon"><strong>Running the Server with Nodemon</strong></h3>
+<p>Update your <strong><code>package.json</code></strong> to include a start script:</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;nodemon server.js&quot;
+}
+</code></pre>
+<p>Run the server with:</p>
+<pre><code class="language-bash">npm start
+</code></pre>
+<hr />
+<h2 id="middleware-in-expressjs">🔧 <strong>Middleware in Express.js</strong></h2>
+<p>Middleware functions are essential in Express for tasks like logging, authentication, and handling file uploads. Here’s how to use <strong>Morgan</strong> and <strong>Multer</strong>.</p>
+<h3 id="using-morgan-for-request-logging"><strong>Using Morgan for Request Logging</strong></h3>
+<p><strong>Morgan</strong> logs HTTP requests, helping with debugging and monitoring.</p>
+<pre><code class="language-js">const morgan = require('morgan');
+app.use(morgan('dev'));
+</code></pre>
+<h3 id="handling-file-uploads-with-multer"><strong>Handling File Uploads with Multer</strong></h3>
+<p><strong>Multer</strong> handles file uploads. Here’s how you can use it:</p>
+<pre><code class="language-js">const multer = require('multer');
+
+// Configure Multer storage options
+const storage = multer.diskStorage({
+  destination: (req, file, cb) =&gt; {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) =&gt; {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+// Initialize Multer
+const upload = multer({ storage });
+
+// File upload route
+app.post('/upload', upload.single('file'), (req, res) =&gt; {
+  if (!req.file) return res.status(400).send('No file uploaded.');
+  res.send(`File uploaded: ${req.file.filename}`);
+});
+</code></pre>
+<hr />
+<h2 id="authentication-jwt-with-refresh-tokens">🔒 <strong>Authentication: JWT with Refresh Tokens</strong></h2>
+<p>Using <strong>JWT</strong> (JSON Web Token) for authentication is common in modern web apps. One challenge with JWT is token expiration. To handle this, you can implement <strong>Refresh Tokens</strong>.</p>
+<h3 id="jwt-authentication-with-refresh-tokens"><strong>JWT Authentication with Refresh Tokens</strong></h3>
+<ol>
+<li><strong>Install JWT and BcryptJS</strong>:</li>
+</ol>
+<pre><code class="language-bash">npm install jsonwebtoken bcryptjs
+</code></pre>
+<ol>
+<li><strong>JWT and Refresh Token Setup</strong>:</li>
+</ol>
+<p>Here’s how to issue an access token and a refresh token:</p>
+<pre><code class="language-js">const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+
+// Dummy users database (in-memory)
+const users = [
+  { id: 1, username: 'alice', password: '$2a$10$EJ8uWg4P5o8VznMoc0e8t2k9VOVxY8xhFj4PfTgz9gqkxXy35S0aG' }, // bcrypt hash of 'password123'
+];
+
+// Middleware to verify JWT token
+function verifyToken(req, res, next) {
+  const token = req.header('Authorization')?.split(' ')[1]; // Bearer &lt;token&gt;
+  if (!token) return res.status(401).send('Access Denied');
+
+  jwt.verify(token, 'your_jwt_secret_key', (err, user) =&gt; {
+    if (err) return res.status(403).send('Invalid Token');
+    req.user = user;
+    next();
+  });
+}
+
+// Function to generate access and refresh tokens
+function generateTokens(user) {
+  const accessToken = jwt.sign({ id: user.id, username: user.username }, 'your_jwt_secret_key', { expiresIn: '15m' });
+  const refreshToken = jwt.sign({ id: user.id }, 'your_refresh_token_secret', { expiresIn: '7d' });
+  return { accessToken, refreshToken };
+}
+
+// Route to login and generate JWT + Refresh token
+app.post('/login', (req, res) =&gt; {
+  const { username, password } = req.body;
+
+  const user = users.find((u) =&gt; u.username === username);
+  if (!user) return res.status(400).send('User not found.');
+
+  // Compare password with hash stored in database
+  bcrypt.compare(password, user.password, (err, result) =&gt; {
+    if (!result) return res.status(400).send('Invalid password.');
+
+    // Generate access token and refresh token
+    const { accessToken, refreshToken } = generateTokens(user);
+    res.json({ accessToken, refreshToken });
+  });
+});
+
+// Route to refresh the access token using the refresh token
+app.post('/token', (req, res) =&gt; {
+  const { refreshToken } = req.body;
+
+  if (!refreshToken) return res.status(401).send('Refresh token is required.');
+
+  jwt.verify(refreshToken, 'your_refresh_token_secret', (err, user) =&gt; {
+    if (err) return res.status(403).send('Invalid refresh token.');
+
+    // Generate new access token
+    const { accessToken } = generateTokens(user);
+    res.json({ accessToken });
+  });
+});
+
+// Protected route using JWT
+app.get('/protected', verifyToken, (req, res) =&gt; {
+  res.send(`Hello ${req.user.username}, welcome to the protected route.`);
+});
+</code></pre>
+<h3 id="explanation-of-tokens"><strong>Explanation of Tokens:</strong></h3>
+<ul>
+<li><strong>Access Token</strong>: A short-lived token (usually expires in 15 minutes to 1 hour). Used to authenticate requests.</li>
+<li><strong>Refresh Token</strong>: A long-lived token (usually expires in 7 days or longer). Used to obtain a new access token after it expires.</li>
+</ul>
+<h3 id="how-it-works"><strong>How It Works</strong>:</h3>
+<ol>
+<li>The user logs in and receives an <strong>access token</strong> (short-lived) and a <strong>refresh token</strong> (long-lived).</li>
+<li>The access token is used to authenticate API requests. It expires quickly (e.g., in 15 minutes).</li>
+<li>If the access token expires, the client can send the refresh token to the server to obtain a new access token without requiring the user to log in again.</li>
+</ol>
+<h3 id="testing"><strong>Testing</strong>:</h3>
+<ol>
+<li><strong>Login</strong>: Use the <code>/login</code> route to get the <strong>access token</strong> and <strong>refresh token</strong>.</li>
+<li><strong>Refresh Access Token</strong>: Use the <code>/token</code> route to refresh the <strong>access token</strong> using the refresh token.</li>
+<li><strong>Access Protected Route</strong>: Use the <strong>access token</strong> to access the <code>/protected</code> route.</li>
+</ol>
+<hr />
+<h2 id="database-integration-mongodb-and-postgresql">🗄️ <strong>Database Integration: MongoDB and PostgreSQL</strong></h2>
+<h3 id="1-integrating-mongodb-with-mongoose"><strong>1. Integrating MongoDB with Mongoose</strong></h3>
+<ol>
+<li><strong>Install Mongoose</strong>:</li>
+</ol>
+<pre><code class="language-bash">npm install mongoose
+</code></pre>
+<ol>
+<li><strong>Connect to MongoDB and Create a Model</strong>:</li>
+</ol>
+<pre><code class="language-js">const mongoose = require('mongoose');
+
+// MongoDB connection
+mongoose.connect('mongodb://localhost/mydb', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() =&gt; console.log('MongoDB Connected'))
+  .catch(err =&gt; console.log(err));
+
+// Define a schema for users
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+});
+
+const User = mongoose.model('User', userSchema);
+
+// Create a new user
+app.post('/register', (req, res) =&gt; {
+  const { username, password } = req.body;
+
+  const newUser = new User({ username, password });
+  newUser.save()
+    .then(() =&gt; res.status(201).send('User registered'))
+    .catch(err =&gt; res.status(400).send('Error registering user'));
+});
+</code></pre>
+<h3 id="2-integrating-postgresql-with-pg"><strong>2. Integrating PostgreSQL with pg</strong></h3>
+<ol>
+<li><strong>Install pg</strong>:</li>
+</ol>
+<pre><code class="language-bash">npm install pg
+</code></pre>
+<ol>
+<li><strong>Connect to PostgreSQL and Query the Database</strong>:</li>
+</ol>
+<pre><code class="language-js">const { Client } = require('pg');
+
+// Connect to PostgreSQL
+const client = new Client({
+  user: 'myuser',
+  host: 'localhost',
+  database: 'mydb',
+  password: 'mypassword',
+  port: 5432,
+});
+
+client.connect();
+
+// Query example
+app.get('/users', async
+
+ (req, res) =&gt; {
+  const result = await client.query('SELECT * FROM users');
+  res.json(result.rows);
+});
+</code></pre>
+<hr />
+<h2 id="folder-structure-example">📁 <strong>Folder Structure Example</strong></h2>
+<p>Here’s an updated folder structure with MongoDB and PostgreSQL integrations:</p>
+<pre><code>/my-express-app
+  /uploads                # Folder for file uploads
+  /node_modules
+  /public                 # Static files like HTML, CSS, JavaScript
+  /src
+    /controllers          # Controllers for handling logic
+      userController.js
+    /models               # MongoDB models or PostgreSQL queries
+      userModel.js
+    /routes               # API routes
+      userRoutes.js
+    /middlewares          # Custom middleware (e.g., JWT verification)
+    server.js             # Main entry point
+  /package.json           # Dependencies and scripts
+  /tsconfig.json (if using TypeScript)
+</code></pre>
+<hr />
+<h2 id="conclusion">🚀 <strong>Conclusion</strong></h2>
+<p>In this <strong>Node.js &amp; Express.js Crash Course</strong>, you’ve learned how to build a RESTful API with authentication (JWT and Refresh Tokens), handle file uploads, integrate MongoDB and PostgreSQL databases, and manage complex routes. You now have the foundation to build scalable and secure backend applications.</p>
+<h3 id="next-steps"><strong>Next Steps:</strong></h3>
+<ul>
+<li>Add data validation and error handling.</li>
+<li>Implement advanced authentication (e.g., refresh tokens).</li>
+<li>Explore different database setups like <strong>MySQL</strong> or <strong>Redis</strong> for caching.</li>
+</ul>
+<p>Happy coding! 🚀</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
